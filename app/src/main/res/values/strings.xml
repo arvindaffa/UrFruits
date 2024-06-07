@@ -1,3 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">UrFruits</string>
+    <string name="urfruits">UrFruits.</string>
+    <string name="welcome">Selamat Datang di UrFruits</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur. Laoreet erat lorem elit aenean. Neque amet purus ipsum ut leo. </string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="welcome_text">Welcome !</string>
+    <string name="dont_have" >Don\'t have an account ?</string>
+    <string name="signup_first">Please Sign Up First !</string>
+    <string name="have_account">Have An Account ?</string>
+    <string name="hint_username">Masukkan username</string>
+    <string name="hint_password">Masukkan password</string>
+    <string name="hint_email">Masukkan email</string>
+    <string name="hint_no">Masukkan nomor telepon</string>
 </resources>

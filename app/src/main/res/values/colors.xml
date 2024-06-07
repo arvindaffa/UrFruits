@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#878787</color>
+    <color name="background_auth">#EFF5EB</color>
+    <color name="signin_color">#80BC51</color>
+    <color name="signup_color">#E6F2DC</color>
+    <color name="signup_text_color">#2E6E08</color>
+    <color name="urfruits_color">#81BC52</color>
+    <color name="green_tulen">#4A6D4B</color>
 </resources>
