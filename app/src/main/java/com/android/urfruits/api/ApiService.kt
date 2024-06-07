@@ -18,7 +18,7 @@ data class ApiResponse(
 )
 
 data class UserResponse(
-    @SerializedName("Id") val Id: String,
+    @SerializedName("id") val Id: String,
     val email: String,
     val name: String
 )
