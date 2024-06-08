@@ -16,6 +16,7 @@ import com.android.urfruits.api.ApiService
 import com.android.urfruits.api.LoginRequest
 import com.android.urfruits.api.ApiResponse
 import com.android.urfruits.signup.SignupActivity
+import com.auth0.android.jwt.JWT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +37,7 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
         signinButton = findViewById(R.id.signinButton)
         val signup: TextView = findViewById(R.id.signup_text)
 
-        // Inisialisasi Retrofit
+        // Initialize Retrofit
         apiService = ApiClient.apiService
 
         signinButton.setOnClickListener(this)
@@ -70,23 +71,36 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful && response.body() != null) {
                     val loginResponse = response.body()!!
-                    Toast.makeText(this@SigninActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+                    Log.d("SigninActivity", "Response: $loginResponse")
 
-                    // Handle login success and pass data to MainActivity
-                    val intent = Intent(this@SigninActivity, MainActivity::class.java).apply {
-                        putExtra("USER_ID", loginResponse.user.id)
-                        putExtra("USER_EMAIL", loginResponse.user.email)
-                        putExtra("USER_NAME", loginResponse.user.name)
-                        putExtra("USER_TOKEN", loginResponse.token)
+                    val user = loginResponse.user
+                    if (user.token != null) {
+                        val token = user.token
+                        val userId = user.id
+                        val userEmail = user.email
+                        val userName = user.name
+
+                        Toast.makeText(this@SigninActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+
+                        // Handle login success and pass data to MainActivity
+                        val intent = Intent(this@SigninActivity, MainActivity::class.java).apply {
+                            putExtra("USER_ID", userId)
+                            putExtra("USER_EMAIL", userEmail)
+                            putExtra("USER_NAME", userName)
+                            putExtra("USER_TOKEN", token)
+                        }
+                        // Display user details in toast
+                        Toast.makeText(
+                            this@SigninActivity,
+                            "ID: $userId\nEmail: $userEmail\nName: $userName\nToken: $token",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Log.d("SigninActivity", "Token is null in the response")
+                        Toast.makeText(this@SigninActivity, "Login failed: Token is null", Toast.LENGTH_SHORT).show()
                     }
-                    // Display user details in toast
-                    Toast.makeText(
-                        this@SigninActivity,
-                        "ID: ${loginResponse.user.id}\nEmail: ${loginResponse.user.email}\nName: ${loginResponse.user.name}\nToken: ${loginResponse.token}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    startActivity(intent)
-                    finish()
                 } else {
                     Log.d("SigninActivity", "Login failed: ${response.errorBody()?.string()}")
                     Toast.makeText(this@SigninActivity, "Login failed", Toast.LENGTH_SHORT).show()
@@ -99,4 +113,5 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
     }
+
 }

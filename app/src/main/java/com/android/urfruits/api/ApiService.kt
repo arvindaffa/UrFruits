@@ -20,13 +20,13 @@ data class ApiResponse(
     val status: String,
     val message: String,
     val user: UserResponse,
-    val token: String
 )
 
 data class UserResponse(
     @SerializedName("id") val id: String,
     val email: String,
-    val name: String
+    val name: String,
+    val token: String
 )
 
 interface ApiService {
