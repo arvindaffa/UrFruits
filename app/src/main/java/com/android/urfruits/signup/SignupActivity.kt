@@ -70,6 +70,9 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
                         val userId = apiResponse.user.id // Use nullable safe call operator
                         val message = "Status: ${apiResponse.status}\nMessage: ${apiResponse.message}\nUser ID: $userId"
                         Toast.makeText(this@SignupActivity, message, Toast.LENGTH_LONG).show()
+                        val intent = Intent(this@SignupActivity, SigninActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     } else {
                         val message = "Status: ${apiResponse?.status}\nMessage: ${apiResponse?.message}"
                         Toast.makeText(this@SignupActivity, message, Toast.LENGTH_SHORT).show()

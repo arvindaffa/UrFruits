@@ -28,12 +28,5 @@ class MainActivity : AppCompatActivity() {
         userEmailTextView.text = "Email: $userEmail"
         userNameTextView.text = "Name: $userName"
         userTokenTextView.text = "Token: $userToken"
-
-        // Tampilkan informasi pengguna dalam toast
-        Toast.makeText(
-            this,
-            "ID: $userId\nEmail: $userEmail\nName: $userName\nToken: $userToken",
-            Toast.LENGTH_LONG
-        ).show()
     }
 }

@@ -73,8 +73,8 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
                     val loginResponse = response.body()!!
                     Log.d("SigninActivity", "Response: $loginResponse")
 
-                    val user = loginResponse.user
-                    if (user.token != null) {
+                    if (loginResponse.status == "success") {
+                        val user = loginResponse.user
                         val token = user.token
                         val userId = user.id
                         val userEmail = user.email
@@ -98,12 +98,20 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
                         startActivity(intent)
                         finish()
                     } else {
-                        Log.d("SigninActivity", "Token is null in the response")
-                        Toast.makeText(this@SigninActivity, "Login failed: Token is null", Toast.LENGTH_SHORT).show()
+                        // Handle failed login attempt
+                        val errorMessage = loginResponse.message
+                        if (errorMessage.contains("Invalid email or password", true)) {
+                            // Display only the specific error message
+                            Toast.makeText(this@SigninActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Display general error message
+                            Toast.makeText(this@SigninActivity, "Login failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 } else {
-                    Log.d("SigninActivity", "Login failed: ${response.errorBody()?.string()}")
-                    Toast.makeText(this@SigninActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                    val errorResponse = response.errorBody()?.string()
+                    Log.d("SigninActivity", "Login failed: $errorResponse")
+                    Toast.makeText(this@SigninActivity, errorResponse, Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -113,5 +121,7 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
     }
+
+
 
 }
