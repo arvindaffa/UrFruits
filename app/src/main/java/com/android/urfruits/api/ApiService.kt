@@ -11,14 +11,20 @@ data class User(
     val password: String
 )
 
+data class LoginRequest(
+    val email: String,
+    val password: String
+)
+
 data class ApiResponse(
     val status: String,
     val message: String,
-    val user: UserResponse
+    val user: UserResponse,
+    val token: String
 )
 
 data class UserResponse(
-    @SerializedName("id") val Id: String,
+    @SerializedName("id") val id: String,
     val email: String,
     val name: String
 )
@@ -26,4 +32,7 @@ data class UserResponse(
 interface ApiService {
     @POST("register")
     fun registerUser(@Body user: User): Call<ApiResponse>
+
+    @POST("login")
+    fun loginUser(@Body request: LoginRequest): Call<ApiResponse>
 }

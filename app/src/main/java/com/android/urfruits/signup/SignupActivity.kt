@@ -1,15 +1,18 @@
 package com.android.urfruits.signup
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.urfruits.R
 import com.android.urfruits.api.ApiClient
 import com.android.urfruits.api.ApiResponse
 import com.android.urfruits.api.User
+import com.android.urfruits.signin.SigninActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,8 +31,10 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         inputEmail = findViewById(R.id.input_email)
         inputPassword = findViewById(R.id.input_password)
         signupButton = findViewById(R.id.signupButton)
+        val signin: TextView = findViewById(R.id.signin_text)
 
         signupButton.setOnClickListener(this)
+        signin.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -45,6 +50,11 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
                     registerUser(name, email, password)
                 }
             }
+
+            R.id.signin_text -> {
+                val moveToSignIn = Intent(this@SignupActivity, SigninActivity::class.java)
+                startActivity(moveToSignIn)
+            }
         }
     }
 
@@ -57,7 +67,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
                 if (response.isSuccessful) {
                     val apiResponse = response.body()
                     if (apiResponse?.status == "success") {
-                        val userId = apiResponse.user.Id // Use nullable safe call operator
+                        val userId = apiResponse.user.id // Use nullable safe call operator
                         val message = "Status: ${apiResponse.status}\nMessage: ${apiResponse.message}\nUser ID: $userId"
                         Toast.makeText(this@SignupActivity, message, Toast.LENGTH_LONG).show()
                     } else {

@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoText" />
 
     <EditText
-        android:id="@+id/input_username"
+        android:id="@+id/input_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -55,7 +55,7 @@
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         android:lines="1"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textSize="15sp"
         android:background="@drawable/round_edit_text"
         android:drawableStart="@drawable/person_icon"
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionText"
-        android:hint="@string/hint_username"
+        android:hint="@string/hint_email"
         tools:ignore="LabelFor" />
 
     <EditText
@@ -84,7 +84,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_username"
+        app:layout_constraintTop_toBottomOf="@+id/input_email"
         tools:ignore="LabelFor"
         android:hint="@string/hint_password" />
 
