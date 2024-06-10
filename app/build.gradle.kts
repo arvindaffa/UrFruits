@@ -53,4 +53,9 @@ dependencies {
 
     //jwt
     implementation ("com.auth0.android:jwtdecode:2.0.0")
+
+    //shared preference
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
 }

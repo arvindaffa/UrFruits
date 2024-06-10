@@ -37,6 +37,7 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
         signinButton = findViewById(R.id.signinButton)
         val signup: TextView = findViewById(R.id.signup_text)
 
+        ApiClient.init(this)
         // Initialize Retrofit
         apiService = ApiClient.apiService
 
@@ -80,23 +81,29 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
                         val userEmail = user.email
                         val userName = user.name
 
-                        Toast.makeText(this@SigninActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+                        // Log the token and other values to check if they are not null
+                        Log.d("SigninActivity", "Token: $token, User ID: $userId, User Email: $userEmail, User Name: $userName")
 
-                        // Handle login success and pass data to MainActivity
-                        val intent = Intent(this@SigninActivity, MainActivity::class.java).apply {
-                            putExtra("USER_ID", userId)
-                            putExtra("USER_EMAIL", userEmail)
-                            putExtra("USER_NAME", userName)
-                            putExtra("USER_TOKEN", token)
+                        // Check if token is null
+                        if (token != null) {
+                            // Store token in SharedPreferences
+                            val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putString("JWT_TOKEN", token)
+                            editor.putString("USER_ID", userId)
+                            editor.putString("USER_EMAIL", userEmail)
+                            editor.putString("USER_NAME", userName)
+                            editor.apply()
+
+                            Toast.makeText(this@SigninActivity, loginResponse.message, Toast.LENGTH_SHORT).show()
+
+                            // Handle login success and pass data to MainActivity
+                            val intent = Intent(this@SigninActivity, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            Toast.makeText(this@SigninActivity, "Login failed: Token is null", Toast.LENGTH_SHORT).show()
                         }
-                        // Display user details in toast
-                        Toast.makeText(
-                            this@SigninActivity,
-                            "ID: $userId\nEmail: $userEmail\nName: $userName\nToken: $token",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        startActivity(intent)
-                        finish()
                     } else {
                         // Handle failed login attempt
                         val errorMessage = loginResponse.message
@@ -121,7 +128,4 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
     }
-
-
-
 }

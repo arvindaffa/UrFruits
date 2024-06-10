@@ -3,7 +3,10 @@ package com.android.urfruits.api
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 data class User(
     val name: String,
@@ -35,4 +38,7 @@ interface ApiService {
 
     @POST("login")
     fun loginUser(@Body request: LoginRequest): Call<ApiResponse>
+
+    @GET("users/{id}")
+    fun getUser(@Header("Authorization") token: String, @Path("id") userId: String): Call<ApiResponse>
 }

@@ -6,11 +6,18 @@
     <string name="signin">Sign In</string>
     <string name="signup">Sign Up</string>
     <string name="welcome_text">Welcome !</string>
-    <string name="dont_have" >Don\'t have an account ?</string>
+    <string name="dont_have">Don\'t have an account ?</string>
     <string name="signup_first">Please Sign Up First !</string>
     <string name="have_account">Have An Account ?</string>
     <string name="hint_username">Masukkan username</string>
     <string name="hint_password">Masukkan password</string>
     <string name="hint_email">Masukkan email</string>
     <string name="hint_no">Masukkan nomor telepon</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="old_password">Masukkan kata sandi lama</string>
+    <string name="new_password">Masukkan kata sandi baru</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="edit_foto">Edit Foto</string>
 </resources>
