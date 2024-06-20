@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">UrFruits</string>
+    <string name="greeting">Hai, Selamat datang 🎉</string>
+    <string name="user_name_placeholder">Aan Hyung</string>
+    <string name="user_photo">User Photo</string>
+    <string name="history_scanning">History Scanning</string>
+    <string name="fruit_image">Fruit Image</string>
+    <string name="more_details">More Details</string>
+    <string name="history_name">History Scanning</string>
+    <string name="filter">Mangga</string>
+    <string name="urfruits">UrFruits.</string>
+    <string name="welcome">Selamat Datang di UrFruits</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur. Laoreet erat lorem elit aenean. Neque amet purus ipsum ut leo. </string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="welcome_text">Welcome !</string>
+    <string name="dont_have">Don\'t have an account ?</string>
+    <string name="signup_first">Please Sign Up First !</string>
+    <string name="have_account">Have An Account ?</string>
+    <string name="hint_username">Masukkan username</string>
+    <string name="hint_password">Masukkan password</string>
+    <string name="hint_email">Masukkan email</string>
+    <string name="hint_no">Masukkan nomor telepon</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="old_password">Masukkan kata sandi lama</string>
+    <string name="new_password">Masukkan kata sandi baru</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="edit_foto">Edit Foto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--        <style name="Widget.Material3.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">-->
+
+</resources>
