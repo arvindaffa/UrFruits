@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!--    <style name="AppTheme" parent="Theme.MaterialComponents"/>-->
@@ -10,4 +11,14 @@
     </style>
 
 
+=======
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.UrFruits" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.UrFruits" parent="Base.Theme.UrFruits" />
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
 </resources>

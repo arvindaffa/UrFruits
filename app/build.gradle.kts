@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+<<<<<<< HEAD
     id("kotlin-parcelize")
+=======
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
 }
 
 android {
@@ -10,15 +13,22 @@ android {
 
     defaultConfig {
         applicationId = "com.android.urfruits"
+<<<<<<< HEAD
         minSdk = 27
+=======
+        minSdk = 24
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+<<<<<<< HEAD
         vectorDrawables {
             useSupportLibrary = true
         }
+=======
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
     }
 
     buildTypes {
@@ -37,6 +47,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+<<<<<<< HEAD
     buildFeatures {
         compose = true
         viewBinding = true
@@ -61,11 +72,21 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+=======
+}
+
+dependencies {
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+<<<<<<< HEAD
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
@@ -105,3 +126,6 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("io.coil-kt:coil:2.6.0")
 }
+=======
+}
+>>>>>>> e997913d160839773a1532a54f5260150452a74d

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">UrFruits</string>
+<<<<<<< HEAD
     <string name="greeting">Hai, Selamat datang 🎉</string>
     <string name="user_name_placeholder">Aan Hyung</string>
     <string name="user_photo">User Photo</string>
@@ -35,4 +36,6 @@
     <string name="edit_profile">Edit Profile</string>
     <!--        <style name="Widget.Material3.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">-->
 
+=======
+>>>>>>> e997913d160839773a1532a54f5260150452a74d
 </resources>
